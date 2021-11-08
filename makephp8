@@ -1,0 +1,35 @@
+#!/bin/bash
+projectsDir=/home/leonid/Desktop/Projects/
+php8dir=/home/leonid/Desktop/Projects/php_8_docker
+
+if [ ! -d $php8dir ] 
+then
+	echo "dir $php8dir doesn't exist"
+fi
+dirIsUnable=true
+while [[ $dirIsUnable = true ]]
+do
+	read -p "New project name: " projectName
+	projectPath=$projectsDir$projectName
+	if [ ! -d $projectPath ] 
+	then
+		dirIsUnable=false
+	else
+		echo "directory $projectPath already exists"
+	fi
+done
+mkdir $projectPath 
+cp -a $php8dir/. $projectPath
+
+read -p "Fullfil .env variables(type y/n)? " fullfilVariables
+if [[$fullfillVariables = 'y']]
+then
+	source ./fulfill_variables
+fi
+
+read -p "Get backup(type y/n)? " getBackupFlag
+
+if [[$getBackupFlag = 'y']]
+then
+	source ./get_backup
+fi

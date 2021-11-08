@@ -1,0 +1,5 @@
+#!/bin/bash
+#read -p "hostname: " hostname
+#read -p "username: " username
+#read -p "password: " password
+source ./get_backup.exp $hostname $username $password

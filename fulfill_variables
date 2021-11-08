@@ -1,0 +1,10 @@
+#!/bin/bash
+curDir=$(pwd)
+echo $test
+rowCounter=0
+for row in $(cat $curDir/.env)
+do
+	read -p "Значение переменной $row" rowValue 
+	sed -i "s/$row/$row$rowValue/" $curDir/.env
+	rowCounter=
+done

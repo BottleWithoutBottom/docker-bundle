@@ -1,0 +1,3 @@
+#!/bin/bash
+pathToTestBash2=$(pwd)/testbash2
+echo $pathToTestBash2

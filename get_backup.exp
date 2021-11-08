@@ -1,0 +1,11 @@
+#!/usr/bin/expect -f 
+#set hostname [lindex $argv 0]
+#set username [lindex $argv 1]
+#set password [lindex $argv 2]
+set hostname cvetochka.work.letsrock.pro
+set username cveto7095
+set password HHOosP
+spawn ./testbash1
+#spawn ssh $usename@$hostname
+expect {"(yes/no)?*" {send "yes\r"}}
+expect "Password:" {send "$password\r"}
